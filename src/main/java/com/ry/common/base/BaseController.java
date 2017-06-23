@@ -18,7 +18,7 @@ public class BaseController extends Base {
 	 * 得到request对象
 	 */
 	protected HttpServletRequest getRequest() {
-		return ((ServletRequestAttributes) RequestContextHolder.getRequestAttributes()).getRequest();
+		return ((ServletRequestAttributes)  RequestContextHolder.getRequestAttributes()).getRequest();
 	}
 
 	/**
