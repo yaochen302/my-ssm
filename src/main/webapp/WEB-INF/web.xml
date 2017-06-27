@@ -50,7 +50,7 @@
         <init-param>
             <param-name>contextConfigLocation</param-name>
             <!--spingMVC的配置路径  -->
-            <param-value>classpath:springmvc/spring-mvc.xml</param-value>
+            <param-value>classpath:spring/spring-mvc.xml</param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
