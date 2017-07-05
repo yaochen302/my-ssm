@@ -13,8 +13,6 @@ import com.ry.shiro.ShiroUtil;
 /**
  * 全局拦截器（权限类）
  * 
- * @author jiangbo
- *
  */
 public class GlobalInterceptor implements HandlerInterceptor {
 

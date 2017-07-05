@@ -8,8 +8,6 @@ import org.springframework.context.ApplicationContextAware;
 /**
  * Spring 上下文工具类
  * 
- * @author jiangbo
- *
  */
 @SuppressWarnings({ "rawtypes" })
 public class SpringContextUtil implements ApplicationContextAware {

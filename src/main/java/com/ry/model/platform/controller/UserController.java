@@ -6,21 +6,23 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.ry.common.base.BaseController;
 import com.ry.common.base.BaseResult;
 import com.ry.model.platform.entity.User;
 import com.ry.model.platform.service.UserService;
 
 @Controller
-@RequestMapping("test")
-public class UserController {  
+@RequestMapping("/test")
+public class UserController extends BaseController{  
 
     @Autowired
     private UserService userService;  
 
     @RequestMapping("/welcome")    
-    public ModelAndView getIndex(){      
-        ModelAndView mav = new ModelAndView("index");   
-        User user = userService.selectUserById(1);  
+    public ModelAndView getIndex(){
+        ModelAndView mav = new ModelAndView("index");
+        User user = userService.selectUserById(1);
+        System.out.println(11111);
         mav.addObject("user", user);   
         return mav;    
     }
