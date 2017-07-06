@@ -16,11 +16,11 @@
 
 	<!-- 启用注解 -->
 	<context:annotation-config />
+	<!-- aop 自动代理 -->
+	<aop:aspectj-autoproxy />
 	
-	<!-- 启动组件扫描，排除@Controller组件，该组件由SpringMVC配置文件扫描 -->
-	<!-- <context:component-scan base-package="com.ry" /> -->
-	<!-- 自动扫描注解的bean -->
-    <context:component-scan base-package="com.ry.model.platform.service" />
+	<context:component-scan base-package="com.ry.module.*.service" />
+
 
 	<!-- Spring上下文管理器 -->
 	<bean id="springContextUtil" class="com.ry.utils.SpringContextUtil" />
@@ -36,5 +36,6 @@
 
 	<import resource="spring-db.xml"/>
 	<import resource="spring-redis.xml"/>
+	<import resource="spring-shiro.xml"/>
 </beans>
 	

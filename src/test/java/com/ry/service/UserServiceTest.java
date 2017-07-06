@@ -2,9 +2,10 @@ package com.ry.service;
 
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+
 import com.ry.baseTest.SpringTestCase;
-import com.ry.model.platform.entity.User;
-import com.ry.model.platform.service.UserService;
+import com.ry.module.platform.entity.User;
+import com.ry.module.platform.service.UserService;
 
 public class UserServiceTest extends SpringTestCase {
 

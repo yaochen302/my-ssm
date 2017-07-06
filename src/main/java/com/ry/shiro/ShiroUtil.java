@@ -12,8 +12,8 @@ import org.apache.shiro.subject.Subject;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.ry.model.platform.dao.UserDao;
-import com.ry.model.platform.entity.User;
+import com.ry.module.platform.dao.UserDao;
+import com.ry.module.platform.entity.User;
 import com.ry.utils.SpringContextUtil;
 import com.ry.utils.cache.redis.RedisUtil;
 

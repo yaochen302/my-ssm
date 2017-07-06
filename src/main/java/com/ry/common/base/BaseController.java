@@ -3,12 +3,15 @@ package com.ry.common.base;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
-import com.ry.model.platform.entity.User;
+
+import com.ry.module.platform.entity.User;
 import com.ry.shiro.ShiroUtil;
 
 

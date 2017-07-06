@@ -1,4 +1,4 @@
-package com.ry.model.platform.entity;
+package com.ry.module.platform.entity;
 
 public class User {
 

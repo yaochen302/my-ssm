@@ -1,4 +1,4 @@
-package com.ry.model.platform.service;
+package com.ry.module.platform.service;
 
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
@@ -9,12 +9,11 @@ import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.ry.common.GlobalConstant;
 import com.ry.common.base.BaseResult;
 import com.ry.common.base.BaseService;
-import com.ry.model.platform.dao.UserDao;
-import com.ry.model.platform.entity.User;
+import com.ry.module.platform.dao.UserDao;
+import com.ry.module.platform.entity.User;
 import com.ry.shiro.ShiroUtil;
 
 @Service("userService")
@@ -31,10 +30,10 @@ public class UserService extends BaseService {
 	public BaseResult CheckUser(String user_name, String user_password) {
 		Subject currentUser = SecurityUtils.getSubject();
 		UsernamePasswordToken token = new UsernamePasswordToken(user_name, user_password);
-		currentUser.login(token);
-
-		// 缓存登录人员对象
 		try {
+			currentUser.login(token);
+
+			// 缓存登录人员对象
 			User user = null;
 
 			if (user_name.equals(GlobalConstant.user.getUserName())) {
@@ -58,5 +57,9 @@ public class UserService extends BaseService {
 		} catch (AuthenticationException ae) {
 			return generateResult(false, "认证未通过，请输入正确的用户名和密码");
 		}
+	}
+
+	public User getUserInfoByAccount(String accountNo) {
+		return userDao.getUserInfoByAccount(accountNo);
 	}
 }

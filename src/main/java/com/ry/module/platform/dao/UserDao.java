@@ -1,8 +1,9 @@
-package com.ry.model.platform.dao;
+package com.ry.module.platform.dao;
 
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
-import com.ry.model.platform.entity.User;
+import com.ry.module.platform.entity.User;
 
 
 @Repository("userDao")

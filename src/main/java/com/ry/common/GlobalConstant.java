@@ -1,6 +1,6 @@
 package com.ry.common;
 
-import com.ry.model.platform.entity.User;
+import com.ry.module.platform.entity.User;
 
 public class GlobalConstant {
 	// 系统内置用户属性
