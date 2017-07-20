@@ -1,0 +1,2 @@
+<script type="text/javascript" src="<%=request.getContextPath()%>/assets/core/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath()%>/assets/core/ajaxsetup.js"></script>

@@ -47,14 +47,15 @@
 			<!-- 匹配的是url路径， 如果不配置或/**,将拦截所有的Controller -->
 			<mvc:mapping path="/**" />
 			<!-- 需排除拦截的地址 -->
-			<mvc:exclude-mapping path="/assets/**" />
-			<mvc:exclude-mapping path="/welcome" />
-			<mvc:exclude-mapping path="/timeout" />
-			<mvc:exclude-mapping path="/logout" />
-			<mvc:exclude-mapping path="/login" />
-			<mvc:exclude-mapping path="/common/**" />
-			<mvc:exclude-mapping path="/uploads/**" />
-			<bean class="com.ry.interceptor.GlobalInterceptor" />
+			<mvc:exclude-mapping path="/"/>
+			<mvc:exclude-mapping path="/assets/**"/>
+			<mvc:exclude-mapping path="/welcome"/>
+			<mvc:exclude-mapping path="/timeout"/>
+			<mvc:exclude-mapping path="/logout"/>
+			<mvc:exclude-mapping path="/login"/>
+			<mvc:exclude-mapping path="/common/**"/>
+			<mvc:exclude-mapping path="/uploads/**"/>
+			<bean class="com.ry.interceptor.GlobalInterceptor"/>
 		</mvc:interceptor>
 		<!-- 当设置多个拦截器时，先按顺序调用preHandle方法，然后逆序调用每个拦截器的postHandle和afterCompletion方法 -->
 	</mvc:interceptors>

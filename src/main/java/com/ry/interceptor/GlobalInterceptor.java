@@ -34,9 +34,9 @@ public class GlobalInterceptor implements HandlerInterceptor {
 					return false;
 				} else {
 					if (actionName.indexOf("center") >= 0) {
-						request.getRequestDispatcher("/welcome").forward(request, response);
+						request.getRequestDispatcher("/test/welcome").forward(request, response);
 					} else {
-						request.getRequestDispatcher("/timeout").forward(request, response);
+						request.getRequestDispatcher("/test/timeout").forward(request, response);
 					}
 					return false;
 				}
@@ -57,7 +57,7 @@ public class GlobalInterceptor implements HandlerInterceptor {
 					response.setHeader("interceptorInfo", "permissionValid");
 					return false;
 				} else {
-					request.getRequestDispatcher("/timeout").forward(request, response);
+					request.getRequestDispatcher("/test/timeout").forward(request, response);
 					return false;
 				}
 			}
