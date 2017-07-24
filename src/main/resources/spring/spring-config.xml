@@ -33,6 +33,9 @@
 			</list>
 		</property>
 	</bean>
+	<bean id="test" class="com.ry.common.BeanTest" p:pro1="123">
+	
+	</bean>
 
 	<import resource="spring-db.xml"/>
 	<import resource="spring-redis.xml"/>
