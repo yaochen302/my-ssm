@@ -33,7 +33,7 @@
 			</list>
 		</property>
 	</bean>
-	<bean id="test" class="com.ry.common.BeanTest" p:pro1="123">
+	<bean id="test" class="com.ry.otherTest.BeanTest" p:pro1="123">
 	
 	</bean>
 
