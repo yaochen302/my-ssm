@@ -1,4 +1,4 @@
-package com.ry.otherTest;
+package com.ry.common;
 
 public class BeanTest {
 

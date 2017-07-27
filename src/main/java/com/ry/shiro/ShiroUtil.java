@@ -1,5 +1,6 @@
 package com.ry.shiro;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Set;
@@ -14,6 +15,7 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.ry.module.platform.dao.UserDao;
 import com.ry.module.platform.entity.User;
+import com.ry.module.platform.service.PermissionService;
 import com.ry.utils.SpringContextUtil;
 import com.ry.utils.cache.redis.RedisUtil;
 
@@ -25,6 +27,7 @@ import com.ry.utils.cache.redis.RedisUtil;
  *
  */
 public class ShiroUtil {
+	public static PermissionService ss = PermissionService.getInstance();
 	private static final String RUIYUN_SALESITE_OPERATOR_INFO_CACHE = "RUIYUN_SALESITE_OPERATOR_INFO_CACHE_";
 	private static final String RUIYUN_SALESITE_ALL_PERMISSSION_CACHE = "RUIYUN_SALESITE_ALL_PERMISSSION_CACHE";
 	private static final String RUIYUN_SALESITE_OPERATOR_ROLE_MAP_CACHE = "RUIYUN_SALESITE_OPERATOR_ROLE_MAP_CACHE_";
@@ -32,6 +35,16 @@ public class ShiroUtil {
 	private static final String RUIYUN_SALESITE_OPERATOR_AUTH_INFO_MAP_CACHE = "RUIYUN_SALESITE_OPERATOR_AUTH_INFO_MAP_CACHE_";
 
 	private static final String PERMESSION_LOOK_ALL_TEL = "look:all:tel";
+	
+	public static Map<String, String> allPermissionMap = Collections.synchronizedMap(new HashMap<String, String>());
+	public static Map<String, Set<String>> userRoleMap = Collections.synchronizedMap(new HashMap<String, Set<String>>());
+	public static Map<String, Set<String>> userPermissionMap = Collections.synchronizedMap(new HashMap<String, Set<String>>());
+	public static Map<String, SimpleAuthorizationInfo> userAuthInfoMap = Collections.synchronizedMap(new HashMap<String, SimpleAuthorizationInfo>());
+	
+	static {
+		ss.getAllPermission(allPermissionMap);
+		ss.getAllRolePermission(userRoleMap, userPermissionMap, userAuthInfoMap);
+	}
 	
 	/**
 	 * 缓存用户登录信息

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ry.module.platform.dao.PermissionDao">
+	<resultMap id="MenuResultMap" type="com.ry.module.platform.entity.sysMenu" >
+    	<id column="sys_menu_id" property="sysMenuId" jdbcType="VARCHAR" />
+    	<result column="sys_menu_name" property="sysMenuName" jdbcType="VARCHAR" />
+    	<result column="parent_menu_id" property="parentMenuId" jdbcType="VARCHAR" />
+    	<result column="url" property="url" jdbcType="VARCHAR" />
+    	<result column="is_function" property="isFunction" jdbcType="INTEGER" />
+    	<result column="status" property="status" jdbcType="INTEGER" />
+    	<result column="sort" property="sort" jdbcType="INTEGER" />
+	</resultMap>
+	<resultMap id="RoleResultMap" type="com.ry.module.platform.entity.sysRole" >
+    	<id column="sys_role_id" property="sysRoleId" jdbcType="VARCHAR" />
+    	<result column="sys_role_name" property="sysRoleName" jdbcType="VARCHAR" />
+    	<result column="status" property="status" jdbcType="INTEGER" />
+    	<result column="sys_user_id" property="sysUserId" jdbcType="VARCHAR" />
+	</resultMap>
+    <resultMap id="GroupResultMap" type="com.ry.module.platform.entity.sysGroup" >
+    	<id column="sys_group_id" property="sysGroupId" jdbcType="VARCHAR" />
+    	<result column="sys_group_name" property="sysGroupName" jdbcType="VARCHAR" />
+		<result column="status" property="status" jdbcType="INTEGER" />
+	</resultMap>
+    <select id="getMenu" resultMap="MenuResultMap">
+		SELECT * FROM SYS_MENU WHERE URL IS NOT NULL
+    </select>
+    <select id="getAllRolePermissionByUser" resultMap="MenuResultMap">
+    	SELECT DISTINCT
+			F.*
+		FROM
+			WXMGR_SYS_USER A,
+			WXMGR_SYS_GROUP B,
+			WXMGR_SYS_GROUPROLE C,
+			WXMGR_SYS_ROLE D,
+			WXMGR_SYS_ROLEMENU E,
+			WXMGR_SYS_MENU F
+		WHERE
+			A.SYS_GROUP_ID = B.SYS_GROUP_ID
+		AND B.SYS_GROUP_ID = C.SYS_GROUP_ID
+		AND C.SYS_ROLE_ID = D.SYS_ROLE_ID
+		AND D.SYS_ROLE_ID = E.SYS_ROLE_ID
+		AND E.SYS_MENU_ID = F.SYS_MENU_ID
+		AND A. STATUS = 1
+		AND B. STATUS = 1
+		AND D. STATUS = 1
+		AND F. STATUS = 1
+		AND F.URL IS NOT NULL
+		AND A.SYS_USER_ID = #{userId}
+    </select>
+</mapper>

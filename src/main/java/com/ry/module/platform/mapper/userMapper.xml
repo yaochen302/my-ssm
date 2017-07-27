@@ -15,4 +15,8 @@
     <select id="getUserInfoByAccount" parameterType="string" resultMap="BaseResultMap">
     	SELECT * FROM sys_user WHERE sys_user_account = #{userName}
     </select>
+    
+    <select id="selectAllUser" resultMap="BaseResultMap">
+    	SELECT * FROM wxmgr_sys_USER WHERE STATUS = 1
+    </select>
 </mapper>

@@ -3,8 +3,6 @@ package com.ry.common;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.ry.otherTest.BeanTest;
-
 public class ApplicationTest {
 
 	public static void main(String[] args) {
